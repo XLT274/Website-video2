@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>短视频分享平台</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>短视频分享</h1>
+            </div>
+            <div class="nav-links">
+                <a href="#" id="browse-link" class="nav-link active">浏览</a>
+                <a href="#" id="upload-link" class="nav-link">上传</a>
+                <a href="#" id="favorites-link" class="nav-link">收藏</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 浏览视频页面 -->
+        <section id="browse-section" class="section active">
+            <div class="content-container">
+                <div class="media-container">
+                    <div class="media-player">
+                        <video id="main-video" controls>
+                            您的浏览器不支持视频播放
+                        </video>
+                        <img id="main-image" style="display: none;" alt="图片内容">
+                        <button id="fullscreen-btn" class="fullscreen-btn">全屏</button>
+                    </div>
+                    <div class="media-actions">
+                        <button id="like-btn" class="action-btn">
+                            <span class="icon">👍</span>
+                            <span id="like-count">0</span>
+                        </button>
+                        <button id="favorite-btn" class="action-btn">
+                            <span class="icon">⭐</span>
+                            <span>收藏</span>
+                        </button>
+                        <button id="share-btn" class="action-btn">
+                            <span class="icon">📤</span>
+                            <span>分享</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="media-info">
+                    <h2 id="media-title">标题</h2>
+                    <p id="media-description">描述</p>
+                    <div id="video-edit-controls" class="edit-controls" style="display: none;">
+                        <h3>视频剪辑</h3>
+                        <div class="control-group">
+                            <label for="start-time">开始时间 (秒):</label>
+                            <input type="number" id="start-time" min="0" step="0.1" value="0">
+                        </div>
+                        <div class="control-group">
+                            <label for="end-time">结束时间 (秒):</label>
+                            <input type="number" id="end-time" min="0" step="0.1" value="10">
+                        </div>
+                        <button id="apply-edit" class="edit-btn">应用剪辑</button>
+                        <button id="reset-edit" class="edit-btn">重置</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="media-list">
+                <h3>推荐内容</h3>
+                <div id="recommended-media" class="media-grid">
+                    <!-- 内容列表将在这里动态生成 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 上传页面 -->
+        <section id="upload-section" class="section">
+            <div class="upload-container">
+                <h2>上传内容</h2>
+                <div class="upload-tabs">
+                    <button id="video-tab" class="tab-btn active">视频</button>
+                    <button id="image-tab" class="tab-btn">图片</button>
+                </div>
+                
+                <!-- 视频上传表单 -->
+                <form id="video-upload-form" class="upload-form active">
+                    <div class="form-group">
+                        <label for="video-file">选择视频文件</label>
+                        <input type="file" id="video-file" accept="video/*" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="video-title-upload">视频标题</label>
+                        <input type="text" id="video-title-upload" placeholder="输入视频标题" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="video-description-upload">视频描述</label>
+                        <textarea id="video-description-upload" placeholder="输入视频描述" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="upload-btn">上传视频</button>
+                </form>
+                
+                <!-- 图片上传表单 -->
+                <form id="image-upload-form" class="upload-form">
+                    <div class="form-group">
+                        <label for="image-file">选择图片文件</label>
+                        <input type="file" id="image-file" accept="image/*" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="image-title-upload">图片标题</label>
+                        <input type="text" id="image-title-upload" placeholder="输入图片标题" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="image-description-upload">图片描述</label>
+                        <textarea id="image-description-upload" placeholder="输入图片描述" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="upload-btn">上传图片</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- 收藏页面 -->
+        <section id="favorites-section" class="section">
+            <div class="favorites-container">
+                <h2>我的收藏</h2>
+                <div id="favorite-media" class="media-grid">
+                    <!-- 收藏的内容将在这里动态生成 -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 短视频分享平台</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
